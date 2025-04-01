@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem Regressiva</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            background-image:url(IMAGENS/two-wallpapers-of-the-from-zero-album-v0-4cahpfjfdfnd1.png) ;
+            background-size: cover; /* A imagem irá cobrir todo o fundo */
+            background-position: center; /* Centraliza a imagem */
+            background-repeat: no-repeat; /* Não repete a imagem */
+
+        
+        }
+        .overlay-image {
+            position: absolute;
+            top: 20px; /* Ajuste a distância do topo conforme necessário */
+            width: 800px; /* Tamanho da imagem, ajuste conforme necessário */
+            height: auto;
+            z-index: 1; /* Coloca a imagem acima do fundo */    
+    }
+            .countdown {
+            font-size: 30px;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background-color: white;
+           position: absolute;
+            
+        body {
+            margin: 0;
+
+            display: flex;
+            justify-content: center; /* Centraliza a imagem horizontalmente */
+            align-items: flex-end; /* Coloca a imagem na parte inferior */
+            width: 800px; /* Tamanho da imagem, ajuste conforme necessário */
+        }
+
+        .footer-image {
+            position: absolute;
+            top: 50px; /* Ajuste a distância do topo conforme necessário */
+            width: 100%; 
+            height: auto;
+            z-index: 1; /* Coloca a imagem acima do fundo */
+        }
+        
+        
+    </style>
+</head>
+<body>
+
+    <!-- Imagem na parte inferior da página -->
+    <img src="IMAGENS/brasilia-removebg-preview.png" alt="Imagem na parte inferior" class="footer-image">
+
+</body>
+        
+    </style>
+</head>
+<body>
+    <!-- Imagem que irá sobrepor o fundo -->
+    <img src="IMAGENS/b6e8d7dabe61ee88aef7afcbfe1392ea84d38cd7-944x448-removebg-preview.png" alt="Imagem sobre o fundo" class="overlay-image">
+
+</html>
+<div class="countdown" id="countdown"></div>
+
+    <script>
+        // Defina a data final para a contagem regressiva (11 de novembro de 2025 às 21:00:00)
+        const countdownDate = new Date("Nov 11, 2025 21:00:00").getTime();
+
+        // Atualize a contagem regressiva a cada 1 segundo
+        const interval = setInterval(function() {
+            // Obtenha a data e hora atuais
+            const now = new Date().getTime();
+            
+            // Calcule a diferença entre a data final e a data atual
+            const distance = countdownDate - now;
+            
+            // Calcule os dias, horas, minutos e segundos restantes
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Exiba a contagem regressiva no elemento com id "countdown"
+            document.getElementById("countdown").innerHTML = `${days} Dias, ${hours} Horas, ${minutes} Minutos, ${seconds} Segundos`;
+            
+            // Se a contagem regressiva terminar, escreva "EXPIROU"
+            if (distance < 0) {
+                clearInterval(interval);
+                document.getElementById("countdown").innerHTML = "EXPIROU!";
+            }
+        }, 1000);
+    </script>
+
+    
